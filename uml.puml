@@ -1,0 +1,102 @@
+@startuml
+package com.skilldistillery.game.entities {
+
+abstract class Character {
+# name: String
++ Character(name : String)
++ getName(): String
++ setName(name : String) : void
+}
+
+class Player {
+- healthPoints : int
+- equipment : ArrayList<String>
++ Player(name: String, healthPoints: int)
++ getHealthPoints() : int
++ setHealthPoints(int) : void
++ startTheHunt(equipment : ArrayList<String>, snipe : Snipe) : void
++ setATrap(food : ArrayList<FoodItems>) : void
++ pickSnipeType() : String
++ collectEquipment() : ArrayList<Equipment>
++ makeSound() : void
++ setTrap(food ArrayList<FoodItems>) : void
++ heal(food : FoodItems) : int 
++ runAway() : void
++ giveUp() : void
++ die() : void
++ catchSnipe() : void
++ getWarnings(healthPoints : int) : void
+  
+}
+
+class Guide {
++ Guide(name : String)
++ printRules() : void
++ queryThePlayer() : String
++ printEquipmentList() : void  
+}
+
+class Snipe {
+- snipe : SnipeType
++ Snipe(name : String, snipeType : SnipeType)
++ hide() : void
++ damage(Player) : int
++ getCaught() : void
++ grantWish() : void
+
+}
+
+enum SnipeType {
++ GUTTER
++ FOREST 
++ GREATPLAINS
+}
+
+enum FoodItems {
++ COFFEE
++ CANDY
++ CINNAMON
++ EXPRESSO
+- numberOfHealthsPoints : int
++ FoodItems(numberOfHealthsPoints : int)
++ getNumberOfHealthsPoints() : int
+
+}
+
+abstract class Equipment {
+# name : String
++ Equipment(name : String)
+
+}
+
+class Storage {
+- item ArrayList<T>
++ Storage(name : String)
++ addItem(item : T) : ArrayList<T>
++ removeItem(item T) : ArrayList<T>
+}
+
+class Light {
+- brightnessLevel : Brightness
++ changeBrightnessLevel(brightnessLevel : Brightness) : void
+}
+
+enum Brightness {
++ LOW
++ MEDIUM
++ HIGH
+}
+
+Character <|-- Player : extends
+Character <|-- Guide : extends
+Character <|-- Snipe : extends
+Equipment <|-- Storage : extends
+Equipment <|-- Light : extends
+Light "1" -- "*" Brightness : "has"
+Player -- "0..*" FoodItems : "heals with"
+Player -- "0..*" Equipment : "collects"
+Player -- "1" Snipe : "hunts"
+Guide -- "0..*" SnipeType : "advises on"
+Snipe "1" -- "1" SnipeType : "is a"
+}
+@enduml
