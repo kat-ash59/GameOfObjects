@@ -95,3 +95,10 @@ public class Guide extends Character
 	
 	
 } // end class Guide
+
+
+
+
+
+
+
