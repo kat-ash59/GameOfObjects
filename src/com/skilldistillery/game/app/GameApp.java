@@ -1,14 +1,20 @@
 package com.skilldistillery.game.app;
 
+import com.skilldistillery.game.entities.FoodItems;
+import com.skilldistillery.game.entities.Guide;
+import com.skilldistillery.game.entities.Player;
+import com.skilldistillery.game.entities.Snipe;
+import com.skilldistillery.game.entities.SnipeType;
+
 public class GameApp {
 	public static void main(String[] args) {
 		GameApp game = new GameApp();
 		game.run();
-	} // end main
+	}
 
 	public void run() {
 
-		Guide guide = new Guide();
+		Guide guide = new Guide(" ");
 		Player player = new Player("Hunter", 100);
 
 		// Guide asks player to choose snipe type
@@ -16,7 +22,7 @@ public class GameApp {
 		Snipe snipe = new Snipe("Sneaky", snipeType);
 
 		// Start the hunt
-		player.startTheHunt();
+		player.startTheHunt(null, snipe);
 
 		// Simulate snipe attack
 		snipe.damage(player);
@@ -28,6 +34,6 @@ public class GameApp {
 			player.die();
 		}
 
-	} // end method run
+	}
 
-} // end class GameApp
+}
