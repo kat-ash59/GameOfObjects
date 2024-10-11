@@ -19,7 +19,7 @@ public class Guide extends Character
 	
 	public void printRules()
 	{
-		System.out.println("Welcome to the Snipe Hunt!");
+		System.out.println("\n\nWelcome to the Snipe Hunt!");
 		System.out.println("Today we will be sending you off on a fun Snipe Hunt\n"
 							+ "\t1) You will be choosing what type of Snipe to hunt,\n"
 							+ "\t2) You will be equiping yourself with the latest Snip Hunting gear\n"
@@ -28,7 +28,7 @@ public class Guide extends Character
 							+ "\t\tyou will need to eat or drink something to regain your health.\n"
 							+ "\t4) If you die you will be thrown out of the Snipe Hunt"
 							+ "\t5) If you catch the Snipe the Snip will grant you a wish and you win the game!\n"
-							+ "Enjoy yourself and have fun!");
+							+ "Enjoy yourself and have fun!\n\n");
 	} // end printRules
 	
 	public SnipeType queryThePlayer()
@@ -38,7 +38,7 @@ public class Guide extends Character
 		SnipeType myType = null;
 		
 	    while (keepGoing.toUpperCase().equals("Y")) {
-	      System.out.println("What type of Snipe would you like to hunt today?\t");
+	      System.out.println("\n\nWhat type of Snipe would you like to hunt today?\t");
 	      System.out.println("\t1) The elusive Gutter Snipe which can be found in the Sewer systems of your City");
 	      System.out.println("\t2) The extremely wild Forest Snipe which can be found in our National Forests");
 	      System.out.println("\t3) The shy Great Plains Snip which is found in our vast Plains");
@@ -84,13 +84,13 @@ public class Guide extends Character
 	
 	public void printEquipmentList()
 	{
-		System.out.println("For your Snip Hunt You will need the following Equipment");
+		System.out.println("\n\nFor your Snip Hunt You will need the following Equipment");
 		System.out.println("=========================================================");
 		System.out.println("1) A Backpack to hold your supplies");
 		System.out.println("2) One or more food items to place in your Backpack");
 		System.out.println("3) One or more Headlamps");
 		System.out.println("4) One or more Pillowcases");
-		System.out.println("4) One or more Nets");
+		System.out.println("4) One or more Nets\n\n");
 	} // end printEquipmentList
 	
 	
