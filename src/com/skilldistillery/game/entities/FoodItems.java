@@ -6,16 +6,21 @@ public enum FoodItems {
 
 	private final int numberOfHealthsPoints;
 	private boolean debug = true;
+	
 
 	FoodItems(int numberOfHealthsPoints) 
 	{
+/*		
 		if (debug == true)
 		{
+			int myHehealthpoints = this.numberOfHealthsPoints;
 			for (int i = 0; i < 5; i++)
 			{
-				System.out.println(food);
+				System.out.println(FoodItem.name());
 			}
 		}
+		
+*/
 		this.numberOfHealthsPoints = numberOfHealthsPoints;
 	}
 
