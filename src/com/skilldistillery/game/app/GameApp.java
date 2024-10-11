@@ -16,7 +16,14 @@ public class GameApp {
 
 		Guide guide = new Guide(" ");
 		Player player = new Player("Hunter", 100);
+		
+		// Guide welcomes player to the game and explains the rules
+		guide.printRules();
 
+		// welcome the player and have them introduce themselves
+		System.out.println("\n\nWelcome to your Snipe Hunt " + player.getName() + "!\n");
+		System.out.println("You are starting your game off with " + player.getHealthPoints() + " healthpoints\n");
+		
 		// Guide asks player to choose snipe type
 		SnipeType snipeType = guide.queryThePlayer();
 		Snipe snipe = new Snipe("Sneaky", snipeType);

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Player extends Character {
 
-	private int healthPoints;
+	private int healthPoints = 100;
 	private Guide guide;
 
 	public Player(String name, int healthPoints) {
 		super(name);
 		this.healthPoints = healthPoints;
-		guide = new Guide();
+		guide = new Guide(name);
 
 	}
 
