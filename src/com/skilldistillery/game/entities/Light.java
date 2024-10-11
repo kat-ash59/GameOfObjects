@@ -9,7 +9,8 @@ public class Light extends Equipment {
 	
 	}
 	
-	public void changeBrightnessLevel(Brightness brightnessLevel) {
+	public void changeBrightnessLevel(Brightness brightnessLevel) 
+	{
 		
 	}
 
