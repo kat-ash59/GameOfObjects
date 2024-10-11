@@ -39,9 +39,9 @@ public class Guide extends Character
 		
 	    while (keepGoing.toUpperCase().equals("Y")) {
 	      System.out.println("What type of Snipe would you like to hunt today?\t");
-	      System.out.println("\t1. The elusive Gutter Snipe which can be found in the Sewer systems of your City");
-	      System.out.println("\t2. The extremely wild Forest Snipe which can be found in our National Forests");
-	      System.out.println("\t3. The shy Great Plains Snip which is found in our vast Plains");
+	      System.out.println("\t1) The elusive Gutter Snipe which can be found in the Sewer systems of your City");
+	      System.out.println("\t2) The extremely wild Forest Snipe which can be found in our National Forests");
+	      System.out.println("\t3) The shy Great Plains Snip which is found in our vast Plains");
 	      System.out.print("\tPlease enter 1, 2, or 3");
 	      try 
 	      {
