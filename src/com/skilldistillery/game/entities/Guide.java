@@ -35,6 +35,7 @@ public class Guide extends Character
 	{
 		Scanner keyboard  = new Scanner(System.in);
 		String keepGoing = "Y";
+		SnipeType myType = null;
 		
 	    while (keepGoing.toUpperCase().equals("Y")) {
 	      System.out.println("What type of Snipe would you like to hunt today?\t");
@@ -45,10 +46,27 @@ public class Guide extends Character
 	      try 
 	      {
 	        int number = keyboard.nextInt();
-	        if ((number < 1) || (number > 3))
+	        if (number == 1)
 	        {
-	        	System.out.println("Please enter a number between 1 and 3");
+	        	myType = SnipeType.GUTTER;
+	        	keepGoing = "N";
 	        }
+	        else if (number == 2)
+	        {
+	        	myType = SnipeType.FOREST;
+	        	keepGoing = "N";
+	        }
+	        else if (number == 3)
+	        {
+	        	myType = SnipeType.GREATPLAINS;
+	        	keepGoing = "N";
+	        }
+	        else
+	        {
+	        	System.out.println("You entered an invalid choice.\n");
+	        	System.out.println("Please try again.");
+	        }
+	        	
 	      } // end try
 	      catch (InputMismatchException e) 
 	      {
@@ -60,12 +78,18 @@ public class Guide extends Character
 	     
 	    } // end while loop
 	   
-	    return null;
+	    return myType;
 	} // end queryThePlayer method
 	
 	public void printEquipmentList()
 	{
-		System.out.println("not implemented yet");
+		System.out.println("For your Snip Hunt You will need the following Equipment");
+		System.out.println("=========================================================");
+		System.out.println("1) A Backpack to hold your supplies");
+		System.out.println("2) One or more food items to place in your Backpack");
+		System.out.println("3) One or more Headlamps");
+		System.out.println("4) One or more Pillowcases");
+		System.out.println("4) One or more Nets");
 	} // end printEquipmentList
 	
 	
