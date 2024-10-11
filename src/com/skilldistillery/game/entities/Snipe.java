@@ -24,4 +24,9 @@ public class Snipe extends Character{
 		
 	}
 
+	public SnipeType getSnipeType() {
+		
+		return snipe;
+	}
+
 }

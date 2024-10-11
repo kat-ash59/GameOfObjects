@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Storage<T> extends Equipment {
 	
-	private ArrayList<T> item;
+	private ArrayList<T> items;
 
 	public Storage(String name) {
 		super(name);

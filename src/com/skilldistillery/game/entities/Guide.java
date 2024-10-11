@@ -78,6 +78,7 @@ public class Guide extends Character
 	     
 	    } // end while loop
 	   
+	    keyboard.close();
 	    return myType;
 	} // end queryThePlayer method
 	
@@ -94,3 +95,10 @@ public class Guide extends Character
 	
 	
 } // end class Guide
+
+
+
+
+
+
+
