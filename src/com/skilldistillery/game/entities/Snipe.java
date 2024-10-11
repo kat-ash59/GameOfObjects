@@ -4,15 +4,19 @@ public class Snipe extends Character{
 	
 	private SnipeType snipe;
 
-	public Snipe(String name, SnipeType snipe) {
+	public Snipe(String name, SnipeType snipe) 
+	{
 		super(name);
 		this.snipe = snipe;
 	}
 		
-	public void hide() {
+	public void hide() 
+	{
 		
 	}
-	public int damage(Player player) {
+	
+	public int damage(Player player) 
+	{
 		return 0;
 	}
 	
