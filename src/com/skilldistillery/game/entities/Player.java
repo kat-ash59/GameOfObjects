@@ -41,6 +41,14 @@ public class Player extends Character {
 	}
 
 	public ArrayList<Equipment> collectEquipment() {
+		// need to grab a backpack
+		Storage backPack = new Storage("backpack");
+		// fill the backpack with food items
+		//backPack.addItem(food); -- do multiple times
+		// grab a net
+		Storage net = new Storage("net");
+		// grab a pillow case
+		// grab a headlamp
 		return null;
 
 	}
