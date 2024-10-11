@@ -41,11 +41,11 @@ public class Snipe extends Character {
 	}
 
 	public void grantWish() {
-		System.out.println("Darn it you caught me!!!");
-		System.out.println("I will now grant you one wish");
-		System.out.println("Say your wish to yourself ....");
+		System.out.println("Darn it you caught me!!!\n");
+		System.out.println("I will now grant you one wish\n");
+		System.out.println("Say your wish to yourself .... and count to 3\n");
 		try {
-			Thread.sleep(20);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

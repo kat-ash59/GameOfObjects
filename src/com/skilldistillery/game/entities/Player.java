@@ -96,7 +96,7 @@ public class Player extends Character {
 	}
 
 	public int heal(FoodItems food) {
-		// TODO Kathy 
+		
 		return 0;
 
 	}
