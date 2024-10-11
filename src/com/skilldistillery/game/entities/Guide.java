@@ -37,48 +37,42 @@ public class Guide extends Character
 		String keepGoing = "Y";
 		SnipeType myType = null;
 		
-	    while (keepGoing.toUpperCase().equals("Y")) {
-	      System.out.println("\n\nWhat type of Snipe would you like to hunt today?\t");
-	      System.out.println("\t1) The elusive Gutter Snipe which can be found in the Sewer systems of your City");
-	      System.out.println("\t2) The extremely wild Forest Snipe which can be found in our National Forests");
-	      System.out.println("\t3) The shy Great Plains Snip which is found in our vast Plains");
-	      System.out.print("\tPlease enter 1, 2, or 3: ");
-	      try 
-	      {
-	        int number = keyboard.nextInt();
-	        if (number == 1)
-	        {
-	        	myType = SnipeType.GUTTER;
-	        	keepGoing = "N";
-	        }
-	        else if (number == 2)
-	        {
-	        	myType = SnipeType.FOREST;
-	        	keepGoing = "N";
-	        }
-	        else if (number == 3)
-	        {
-	        	myType = SnipeType.GREATPLAINS;
-	        	keepGoing = "N";
-	        }
-	        else
-	        {
-	        	System.out.println("You entered an invalid choice.\n");
-	        	System.out.println("Please try again.");
-	        }
+	    while (keepGoing.toUpperCase().equals("Y")) 
+	    {
+	    	System.out.println("\n\nWhat type of Snipe would you like to hunt today?\t");
+	    	System.out.println("\t1) The elusive Gutter Snipe which can be found in the Sewer systems of your City");
+	    	System.out.println("\t2) The extremely wild Forest Snipe which can be found in our National Forests");
+	    	System.out.println("\t3) The shy Great Plains Snipe which is found in our vast Plains");
+	    	System.out.print("\tPlease enter 1, 2, or 3: ");
+
+	    	int number = keyboard.nextInt();
+	    	keyboard.nextLine();
+	    	
+	    	
+	    	if (number == 1)
+	    	{
+	    		myType = SnipeType.GUTTER;
+	    		keepGoing = "N";
+	    	}
+	    	else if (number == 2)
+	    	{
+		       	myType = SnipeType.FOREST;
+		       	keepGoing = "N";
+		    }
+	    	else if (number == 3)
+	    	{
+	    		myType = SnipeType.GREATPLAINS;
+	    		keepGoing = "N";
+	    	}
+	    	else
+	    	{
+		       	System.out.println("You entered an invalid choice.\n");
+		       	System.out.println("Please try again.");
+		    }
 	        	
-	      } // end try
-	      catch (InputMismatchException e) 
-	      {
-	        System.out.println("Invalid input.");
-	        keyboard.nextLine(); // Clear input buffer 
-	      } // end catch
 	      
-	      
-	     
 	    } // end while loop
 	   
-	    keyboard.nextLine(); // to flush the buffer
 	    keyboard.close();
 	    return myType;
 	} // end queryThePlayer method

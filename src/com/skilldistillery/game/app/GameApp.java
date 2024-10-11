@@ -24,19 +24,17 @@ public class GameApp {
 		System.out.println("\n\nWelcome to your Snipe Hunt " + player.getName() + "!\n");
 		System.out.println("You are starting your game off with " + player.getHealthPoints() + " healthpoints\n");
 		
-		// Guide asks player to choose snipe type
-		SnipeType snipeType = guide.queryThePlayer();
-		Snipe snipe = new Snipe("Sneaky", snipeType);
-
+		
 		// Start the hunt
 		player.startTheHunt();
 
 		// Simulate snipe attack
-		snipe.damage(player);
+		// this should be inside the startTheHunt
+		//snipe.damage(player);
 
 		// Check player's health and allow healing
 		if (player.getHealthPoints() > 0) {
-			player.heal(FoodItems.COFFEE);
+			player.heal(player);
 		} else {
 			player.die();
 		}
