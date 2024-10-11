@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Player extends Character {
 
 	private int healthPoints;
+	private Guide guide;
 
 	public Player(String name, int healthPoints) {
 		super(name);
 		this.healthPoints = healthPoints;
+		guide = new Guide();
 
 	}
 
@@ -21,14 +23,17 @@ public class Player extends Character {
 		this.healthPoints = healthPoints;
 	}
 
-	public void startTheHunt(ArrayList<Equipment> equipment, Snipe snipe) {
-		//TODO
+	public void startTheHunt() {
+		// TODO Abner
 		// what snipe type we hunt -> handle by Guide class
 		
-		
-		
+		System.out.println("You chose to hunt " + guide.queryThePlayer());
+
 		// gather our equipment
 		collectEquipment();
+		
+		
+		// encounter the snipe here, heal yourself or quit?
 	}
 
 	public void setATrap(ArrayList<FoodItems> food) {
@@ -41,12 +46,13 @@ public class Player extends Character {
 	}
 
 	public ArrayList<Equipment> collectEquipment() {
+		// TODO Abner
 		// need to grab a backpack
-		Storage backPack = new Storage("backpack");
+
 		// fill the backpack with food items
-		//backPack.addItem(food); -- do multiple times
+		// backPack.addItem(food); -- do multiple times
 		// grab a net
-		Storage net = new Storage("net");
+
 		// grab a pillow case
 		// grab a headlamp
 		return null;
@@ -62,6 +68,8 @@ public class Player extends Character {
 	 *         (indicating the player has died).
 	 */
 	public boolean encounterSnipe(Snipe snipe) {
+		
+		// 
 		System.out.println("You encounter a " + snipe.getSnipeType() + " snipe!");
 
 		// Snipe attacks the player
@@ -72,7 +80,8 @@ public class Player extends Character {
 		// Check if player is still alive
 		if (healthPoints <= 0) {
 			System.out.println("You have died. Game over.");
-			return false; // Player has died
+			die(); // Player has died
+			return false; 
 		}
 
 		return true; // Player is still alive and can continue
@@ -87,7 +96,7 @@ public class Player extends Character {
 	}
 
 	public int heal(FoodItems food) {
-		//TODO
+		// TODO Kathy 
 		return 0;
 
 	}
@@ -101,6 +110,8 @@ public class Player extends Character {
 	}
 
 	public void die() {
+		// TODO Kathy
+		System.exit(0); // Another way to exit the game?
 
 	}
 
@@ -114,23 +125,22 @@ public class Player extends Character {
 	public void getWarnings() {
 		if (this.healthPoints <= 0) {
 			System.out.println("You have died. Game Over");
-			System.exit(0);
-			
+			die();
 		} else if (this.healthPoints <= 9 && this.healthPoints >= 1) {
 			System.out.println("You’re on the brink of death! Do something, quick!");
-			
+
 		} else if (this.healthPoints <= 24 && this.healthPoints >= 10) {
 			System.out.println("You’re badly wounded! One more hit could be fatal.");
-			
+
 		} else if (this.healthPoints <= 49 && this.healthPoints >= 25) {
 			System.out.println("Your health is low. You should find a way to recover soon.");
-			
+
 		} else if (this.healthPoints <= 74 && this.healthPoints >= 50) {
 			System.out.println("You feel a bit tired. Keep an eye on your health.");
-			
+
 		} else if (this.healthPoints <= 99 && this.healthPoints >= 75) {
 			System.out.println("You’re in good shape, but don’t get too careless.");
-			
+
 		} else if (this.healthPoints == 100) {
 			System.out.println("You’re feeling strong and ready for anything!");
 		}

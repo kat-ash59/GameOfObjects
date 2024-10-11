@@ -22,7 +22,7 @@ public class GameApp {
 		Snipe snipe = new Snipe("Sneaky", snipeType);
 
 		// Start the hunt
-		player.startTheHunt(null, snipe);
+		player.startTheHunt();
 
 		// Simulate snipe attack
 		snipe.damage(player);
