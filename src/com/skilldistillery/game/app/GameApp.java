@@ -10,14 +10,13 @@ import com.skilldistillery.game.entities.SnipeType;
 
 public class GameApp {
 
-	public static final Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		GameApp game = new GameApp();
 
 		game.run();
-
-		scanner.close();
+		
 	}
 
 	public void run() {
@@ -42,6 +41,8 @@ public class GameApp {
 		} else {
 			System.out.println("\nGame Over! Better luck next time.");
 		}
+		
+		scanner.close();
 
 	}
 
