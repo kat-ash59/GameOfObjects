@@ -139,12 +139,22 @@ public class Player extends Character {
 	}
 
 	public void runAway() {
-		System.out.println("Run away from the Snipe! Don't let him attack!");
+	    System.out.println("You sprint away from the " + snipe.getSnipeType() + " snipe!");
+	    
+	    // A penalty for running away?
+	    int penalty = 5;
+	    healthPoints -= penalty;
+	    System.out.println("You lost " + penalty + " health points in your frantic escape.");
+	    
+	    if (healthPoints > 0) {
+	        System.out.println("You've managed to escape, but the hunt isn't over yet...");
+	    }
 	}
-
 	public void giveUp() {
-		System.out.println("I give up this is toooooooo dangerous!  Snipes are vicious");
-		System.exit(0);
+	    System.out.println("You decide the hunt is too dangerous and surrender.");
+	    System.out.println("The wild " + snipe.getSnipeType() + " watches as you retreat in defeat.");
+	    System.out.println("Game over. Better luck next time!");
+	    System.exit(0);
 	}
 
 	/**
@@ -157,8 +167,9 @@ public class Player extends Character {
 	}
 
 	public void catchSnipe() {
-	
-		snipe.getCaught();
+		    System.out.println("Congratulations! You've successfully caught the " + snipe.getSnipeType() + " snipe!");
+		    System.out.println("The snipe looks at you with admiration...");
+		    snipe.getCaught();
 	}
 	
 	public void getAttacked()
