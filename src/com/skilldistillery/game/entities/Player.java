@@ -1,6 +1,7 @@
 package com.skilldistillery.game.entities;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player extends Character {
@@ -86,11 +87,26 @@ public class Player extends Character {
 		//
 		System.out.println("You encounter a " + snipe.getSnipeType() + " snipe!");
 
-		// Snipe attacks the player
-		int damage = snipe.damage();
-		healthPoints -= damage;
-		System.out.println("The snipe dealt " + damage + " damage. You now have " + healthPoints + " health points.");
+		// set up random attacked by snipe or catch snipe
+		Random random = new Random();
+		int randomNumber = random.nextInt(4);
 		
+		if (randomNumber == 0)
+		{
+			getAttacked();
+		}
+		else if (randomNumber == 1)
+		{
+			runAway();
+		}
+		else if (randomNumber == 2)
+		{
+			catchSnipe();
+		}
+		else
+		{
+			giveUp();
+		}
 		getWarnings();
 
 		// Check if player is still alive
@@ -123,11 +139,12 @@ public class Player extends Character {
 	}
 
 	public void runAway() {
-
+		System.out.println("Run away from the Snipe! Don't let him attack!");
 	}
 
 	public void giveUp() {
-
+		System.out.println("I give up this is toooooooo dangerous!  Snipes are vicious");
+		System.exit(0);
 	}
 
 	/**
@@ -140,6 +157,16 @@ public class Player extends Character {
 	}
 
 	public void catchSnipe() {
+	
+		snipe.getCaught();
+	}
+	
+	public void getAttacked()
+	{
+		// Snipe attacks the player
+		int damage = snipe.damage();
+		healthPoints -= damage;
+		System.out.println("The snipe dealt " + damage + " damage. You now have " + healthPoints + " health points.");
 
 	}
 
@@ -168,5 +195,7 @@ public class Player extends Character {
 			System.out.println("You’re feeling strong and ready for anything!");
 		}
 	}
+	
+	
 
 }
