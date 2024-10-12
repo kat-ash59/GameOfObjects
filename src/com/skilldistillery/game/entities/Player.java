@@ -90,21 +90,14 @@ public class Player extends Character {
 		// set up random attacked by snipe or catch snipe
 		Random random = new Random();
 		int randomNumber = random.nextInt(4);
-		
-		if (randomNumber == 0)
-		{
+
+		if (randomNumber == 0) {
 			getAttacked();
-		}
-		else if (randomNumber == 1)
-		{
+		} else if (randomNumber == 1) {
 			runAway();
-		}
-		else if (randomNumber == 2)
-		{
+		} else if (randomNumber == 2) {
 			catchSnipe();
-		}
-		else
-		{
+		} else {
 			giveUp();
 		}
 		getWarnings();
@@ -162,18 +155,17 @@ public class Player extends Character {
 	 */
 	public void die() {
 		System.out.println("Game Over. You have been defeated.");
-		System.exit(0); 
+		System.exit(0);
 
 	}
 
 	public void catchSnipe() {
-		    System.out.println("Congratulations! You've successfully caught the " + snipe.getSnipeType() + " snipe!");
-		    System.out.println("The snipe looks at you with admiration...");
-		    snipe.getCaught();
+	    System.out.println("Congratulations! You've successfully caught the " + snipe.getSnipeType() + " snipe!");
+	    System.out.println("The snipe looks at you with admiration...");
+	    snipe.getCaught();
 	}
-	
-	public void getAttacked()
-	{
+
+	public void getAttacked() {
 		// Snipe attacks the player
 		int damage = snipe.damage();
 		healthPoints -= damage;
@@ -206,7 +198,5 @@ public class Player extends Character {
 			System.out.println("You’re feeling strong and ready for anything!");
 		}
 	}
-	
-	
 
 }
