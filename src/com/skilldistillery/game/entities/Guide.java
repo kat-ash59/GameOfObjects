@@ -7,7 +7,7 @@ public final class Guide extends Character {
 	private Scanner scanner;
 
 	public Guide(Scanner scanner) {
-		super("Your Friendly Snip Hunt Guide: Bob");
+		super("Your Friendly Snipe Hunt Guide: Bob");
 		this.scanner = scanner;
 	} // end constructor Guide
 
@@ -17,7 +17,7 @@ public final class Guide extends Character {
 				+ "\t1) You will be choosing what type of Snipe to hunt,\n"
 				+ "\t2) You will be equiping yourself with the latest Snipe Hunting gear\n"
 				+ "\t\tand venturing out into the wilds to catch your Snipe.\n"
-				+ "\t3)The Snip may cause harm when you are hunting them\n"
+				+ "\t3)The Snipe may cause harm when you are hunting them\n"
 				+ "\t\tyou will need to eat or drink something to regain your health.\n"
 				+ "\t4) If you die you will be thrown out of the Snipe Hunt\n"
 				+ "\t5) If you catch the Snipe the Snipe will grant you a wish and you will win the game!\n"
