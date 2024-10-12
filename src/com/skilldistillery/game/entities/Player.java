@@ -1,22 +1,26 @@
 package com.skilldistillery.game.entities;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player extends Character {
 
 	private int healthPoints = 100;
 	private Guide guide;
+	private Snipe snipe;
+	private Storage<FoodItems> backpack;
+	private Scanner scanner;
 
-	public Player(String name, int healthPoints) {
+	public Player(String name, int healthPoints, Scanner scanner) {
 		super(name);
 		this.healthPoints = healthPoints;
-		guide = new Guide(name);
-
+		this.scanner = scanner;
+		guide = new Guide(scanner);
+		backpack = new Storage<>("backpack");
 	}
 
 	public int getHealthPoints() {
 		return healthPoints;
-
 	}
 
 	public void setHealthPoints(int healthPoints) {
@@ -24,16 +28,21 @@ public class Player extends Character {
 	}
 
 	public void startTheHunt() {
-		// TODO Abner
-		// what snipe type we hunt -> handle by Guide class
-		
-		System.out.println("You chose to hunt " + guide.queryThePlayer());
+		// Choose snipe type through the guide
+		SnipeType chosenSnipeType = guide.queryThePlayer();
+		System.out.println("You chose to hunt the " + chosenSnipeType + " snipe.");
+
+		// Create the snipe to hunt
+		snipe = new Snipe("Wild " + chosenSnipeType, chosenSnipeType);
 
 		// gather our equipment
 		collectEquipment();
-		
-		
+
 		// encounter the snipe here, heal yourself or quit?
+		while (healthPoints > 0 && encounterSnipe(snipe)) {
+			// Allow healing after each encounter
+			heal(FoodItems.getRandomFood());
+		}
 	}
 
 	public void setATrap(ArrayList<FoodItems> food) {
@@ -45,17 +54,22 @@ public class Player extends Character {
 
 	}
 
-	public ArrayList<Equipment> collectEquipment() {
-		// TODO Abner
-		// need to grab a backpack
+	/**
+	 * 
+	 */
+	public void collectEquipment() {
 
-		// fill the backpack with food items
-		// backPack.addItem(food); -- do multiple times
-		// grab a net
+		System.out.println("Collecting items for your hunt...");
+		System.out.print("How many food items would you like to collect (1-10)?: ");
+		int numItems = scanner.nextInt();
 
-		// grab a pillow case
-		// grab a headlamp
-		return null;
+		// Add Food to the backpack
+		for (int i = 0; i < numItems; i++) {
+			backpack.addItem(FoodItems.getRandomFood());
+		}
+
+		// Display items added to backpack
+		backpack.displayItems();
 
 	}
 
@@ -68,20 +82,22 @@ public class Player extends Character {
 	 *         (indicating the player has died).
 	 */
 	public boolean encounterSnipe(Snipe snipe) {
-		
-		// 
+
+		//
 		System.out.println("You encounter a " + snipe.getSnipeType() + " snipe!");
 
 		// Snipe attacks the player
-		int damage = snipe.damage(this);
+		int damage = snipe.damage();
 		healthPoints -= damage;
 		System.out.println("The snipe dealt " + damage + " damage. You now have " + healthPoints + " health points.");
+		
+		getWarnings();
 
 		// Check if player is still alive
 		if (healthPoints <= 0) {
 			System.out.println("You have died. Game over.");
 			die(); // Player has died
-			return false; 
+			return false;
 		}
 
 		return true; // Player is still alive and can continue
@@ -95,10 +111,15 @@ public class Player extends Character {
 
 	}
 
-	public int heal(FoodItems food) {
-		
-		return 0;
-
+	/**
+	 * 
+	 * @param food
+	 */
+	public void heal(FoodItems food) {
+		int healthRestored = food.getNumberOfHealthsPoints();
+		healthPoints += healthRestored;
+		System.out.println("You consumed " + food + " and restored " + healthRestored + " health points.");
+		getWarnings(); // Update player on health status
 	}
 
 	public void runAway() {
@@ -109,9 +130,12 @@ public class Player extends Character {
 
 	}
 
+	/**
+	 * 
+	 */
 	public void die() {
-		// TODO Kathy
-		System.exit(0); // Another way to exit the game?
+		System.out.println("Game Over. You have been defeated.");
+		System.exit(0); 
 
 	}
 
@@ -124,7 +148,6 @@ public class Player extends Character {
 	 */
 	public void getWarnings() {
 		if (this.healthPoints <= 0) {
-			System.out.println("You have died. Game Over");
 			die();
 		} else if (this.healthPoints <= 9 && this.healthPoints >= 1) {
 			System.out.println("You’re on the brink of death! Do something, quick!");

@@ -8,6 +8,7 @@ public class Storage<T> extends Equipment {
 
 	public Storage(String name) {
 		super(name);
+		this.items = new ArrayList<>(); 
 	}
 
 	public ArrayList<T> addItem(T item) {
@@ -23,6 +24,19 @@ public class Storage<T> extends Equipment {
 
 	public ArrayList<T> getItems() {
 		return this.items;
+	}
+
+	public void displayItems() {
+		// TODO Auto-generated method stub
+		System.out.println("Items in " + this.name + ":");
+		for (T item : items) {
+			System.out.println("- " + item);
+		}
+		
+	}
+	
+	public boolean hasItem(T item) {
+		return items.contains(item);
 	}
 
 }

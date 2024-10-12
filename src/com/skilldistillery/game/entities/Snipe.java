@@ -1,6 +1,5 @@
 package com.skilldistillery.game.entities;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Snipe extends Character {
@@ -16,21 +15,11 @@ public class Snipe extends Character {
 		System.out.println("OHHHH!!!! The Snipe vanished into thin air!");
 	}
 
-	public int damage(Player player) {
-		int randomIndex = 0;
-		Random randomNumber = new Random();
-		int healthPoints = player.getHealthPoints();
-
-		randomIndex = randomNumber.nextInt(3);
-		if (randomIndex == 1) {
-			healthPoints -= 10;
-		} else if (randomIndex == 2) {
-			healthPoints -= 20;
-		} else {
-			healthPoints -= 30;
-		}
-
-		return healthPoints;
+	public int damage() {
+		//FIXME damage should return a damage value and not handle modify the state of Player 
+		Random random = new Random(); 
+	    int damage = (random.nextInt(3) + 1) * 10;  // random number from 0-2 and damage: 10, 20, or 30
+	    return damage;
 	}
 
 	public void getCaught() {

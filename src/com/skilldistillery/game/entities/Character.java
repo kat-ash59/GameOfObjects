@@ -1,7 +1,7 @@
 package com.skilldistillery.game.entities;
 
 public abstract class Character {
-	protected String name;
+	protected final String name;
 	
 	public Character(String name) {
 		this.name = name;
@@ -9,10 +9,6 @@ public abstract class Character {
 	
 	public String getName() {
 		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }
